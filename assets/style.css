@@ -619,8 +619,7 @@ table th {
     margin-bottom: 12px;
 }
 
-.event-invite-badge,
-.allowed-guests-pill {
+.event-invite-badge {
     display: inline-flex;
     align-items: center;
     border-radius: 999px;
@@ -637,12 +636,6 @@ table th {
     font-weight: 600;
 }
 
-.allowed-guests-pill {
-    padding: 10px 14px;
-    background: rgba(242, 198, 109, 0.2);
-    color: #7a4b18;
-    white-space: nowrap;
-}
 
 .section-copy {
     color: var(--muted);
@@ -658,7 +651,4 @@ table th {
         width: 100%;
     }
 
-    .allowed-guests-pill {
-        white-space: normal;
-    }
 }

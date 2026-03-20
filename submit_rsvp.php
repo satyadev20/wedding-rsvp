@@ -29,7 +29,7 @@ if (!$error) {
     foreach ($inviteIds as $inviteId) {
         $inviteId = (int)$inviteId;
 
-        $stmt = $conn->prepare('SELECT id, allowed_guests FROM guest_event_invites WHERE id = ? AND guest_id = ?');
+        $stmt = $conn->prepare('SELECT id FROM guest_event_invites WHERE id = ? AND guest_id = ?');
         $stmt->bind_param('ii', $inviteId, $guest['id']);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -52,7 +52,7 @@ if (!$error) {
             $guestCount = 0;
         }
 
-        if ($guestCount < 0 || $guestCount > (int)$invite['allowed_guests']) {
+        if ($guestCount < 0) {
             continue;
         }
 
