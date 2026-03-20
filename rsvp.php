@@ -6,6 +6,7 @@ $phone = normalize_phone($_POST['phone'] ?? $_GET['phone'] ?? '');
 $error = '';
 $guest = null;
 $invites = [];
+$totalAllowedGuests = 0;
 
 if (!$phone || !is_valid_us_phone($phone)) {
     $error = 'Please enter a valid 10-digit phone number.';
@@ -40,7 +41,9 @@ if (!$phone || !is_valid_us_phone($phone)) {
         $result = $stmt->get_result();
 
         while ($row = $result->fetch_assoc()) {
+            $row['allowed_guests'] = (int)$row['allowed_guests'];
             $invites[] = $row;
+            $totalAllowedGuests += $row['allowed_guests'];
         }
         $stmt->close();
 
@@ -49,33 +52,62 @@ if (!$phone || !is_valid_us_phone($phone)) {
         }
     }
 }
+
+$invitedEventCount = count($invites);
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSVP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
-<div class="container">
+<body class="wedding-body">
+<div class="container invitation-shell">
     <h1>Wedding RSVP</h1>
 
     <?php if ($error): ?>
         <div class="alert alert-error"><?php echo e($error); ?></div>
-        <a class="btn" href="index.php">Back</a>
+        <a class="btn btn-luxury" href="index.php">Back</a>
     <?php else: ?>
-        <h2>Hello, <?php echo e($guest['name']); ?></h2>
-        <p class="small">Please RSVP for the events below.</p>
+        <div class="invitation-summary">
+            <p class="eyebrow">Your Invitation</p>
+            <h2>Hello, <?php echo e($guest['name']); ?></h2>
+            <p class="section-copy invitation-copy">
+                We found <?php echo $invitedEventCount; ?> event<?php echo $invitedEventCount === 1 ? '' : 's'; ?> on your invitation.
+                Please RSVP only for the celebrations listed below.
+            </p>
+            <div class="invitation-stats">
+                <div class="invitation-stat">
+                    <span class="invitation-stat-label">Invited Events</span>
+                    <strong><?php echo $invitedEventCount; ?></strong>
+                </div>
+                <div class="invitation-stat">
+                    <span class="invitation-stat-label">Max Guests Across Events</span>
+                    <strong><?php echo $totalAllowedGuests; ?></strong>
+                </div>
+            </div>
+        </div>
 
         <form method="post" action="submit_rsvp.php">
             <input type="hidden" name="phone" value="<?php echo e($guest['phone']); ?>">
 
             <?php foreach ($invites as $invite): ?>
-                <div class="event-card">
-                    <h3><?php echo e($invite['event_name']); ?></h3>
-                    <p class="small"><?php echo e($invite['event_label']); ?> | <?php echo e($invite['event_date']); ?></p>
+                <div class="event-card invitation-event-card">
+                    <div class="invitation-event-header">
+                        <div>
+                            <p class="event-invite-badge">Included in your invitation</p>
+                            <h3><?php echo e($invite['event_name']); ?></h3>
+                            <p class="small"><?php echo e($invite['event_label']); ?> | <?php echo e($invite['event_date']); ?></p>
+                        </div>
+                        <div class="allowed-guests-pill">
+                            Up to <?php echo (int)$invite['allowed_guests']; ?> guest<?php echo (int)$invite['allowed_guests'] === 1 ? '' : 's'; ?>
+                        </div>
+                    </div>
 
                     <input type="hidden" name="invite_ids[]" value="<?php echo (int)$invite['invite_id']; ?>">
 
@@ -101,7 +133,7 @@ if (!$phone || !is_valid_us_phone($phone)) {
                 </div>
             <?php endforeach; ?>
 
-            <button type="submit">Submit RSVP</button>
+            <button type="submit" class="btn btn-luxury">Submit RSVP</button>
         </form>
     <?php endif; ?>
 </div>
