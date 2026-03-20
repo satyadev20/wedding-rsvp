@@ -560,3 +560,105 @@ table th {
         margin-right: 0;
     }
 }
+
+.invitation-shell {
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(123, 45, 82, 0.1);
+    box-shadow: var(--shadow);
+}
+
+.invitation-summary {
+    margin-bottom: 28px;
+    padding: 24px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(123, 45, 82, 0.08), rgba(242, 198, 109, 0.16));
+    border: 1px solid rgba(123, 45, 82, 0.1);
+}
+
+.invitation-copy {
+    margin-bottom: 0;
+}
+
+.invitation-stats {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.invitation-stat {
+    min-width: 180px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(123, 45, 82, 0.08);
+}
+
+.invitation-stat-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+
+.invitation-event-card {
+    border-radius: 24px;
+    border: 1px solid rgba(123, 45, 82, 0.12);
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 14px 36px rgba(88, 33, 59, 0.08);
+}
+
+.invitation-event-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.event-invite-badge,
+.allowed-guests-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.event-invite-badge {
+    margin: 0 0 10px;
+    padding: 8px 12px;
+    background: rgba(123, 45, 82, 0.1);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.allowed-guests-pill {
+    padding: 10px 14px;
+    background: rgba(242, 198, 109, 0.2);
+    color: #7a4b18;
+    white-space: nowrap;
+}
+
+.section-copy {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+    .invitation-event-header {
+        flex-direction: column;
+    }
+
+    .invitation-stat {
+        width: 100%;
+    }
+
+    .allowed-guests-pill {
+        white-space: normal;
+    }
+}
