@@ -63,30 +63,16 @@ $phone = isset($_GET['phone']) ? normalize_phone($_GET['phone']) : '';
         <section id="events" class="landing-section reveal">
             <div class="section-header">
                 <p class="eyebrow">Our Celebration</p>
-                <h2>Three beautiful events, one unforgettable weekend</h2>
-                <p class="section-copy">Your RSVP page will automatically show only the events assigned to your phone number.</p>
+                <h2>Marriage ceremony</h2>
+                <p class="section-copy">The home page now highlights only the marriage event. Your RSVP page will still show every event assigned to your invitation.</p>
             </div>
 
             <div class="event-grid-landing">
                 <article class="timeline-card">
                     <div class="timeline-glow"></div>
-                    <p class="timeline-date">April 30, 2026</p>
-                    <h3>Engagement / Haldi</h3>
-                    <p>Kick off the celebrations with color, music, and joyful family moments.</p>
-                </article>
-
-                <article class="timeline-card">
-                    <div class="timeline-glow"></div>
                     <p class="timeline-date">May 3, 2026</p>
                     <h3>Marriage</h3>
                     <p>The main wedding ceremony and the moment we begin our new life together.</p>
-                </article>
-
-                <article class="timeline-card">
-                    <div class="timeline-glow"></div>
-                    <p class="timeline-date">May 4, 2026</p>
-                    <h3>Rathram</h3>
-                    <p>A warm and elegant closing celebration with loved ones.</p>
                 </article>
             </div>
         </section>
