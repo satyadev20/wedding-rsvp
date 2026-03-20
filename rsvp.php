@@ -6,7 +6,6 @@ $phone = normalize_phone($_POST['phone'] ?? $_GET['phone'] ?? '');
 $error = '';
 $guest = null;
 $invites = [];
-$totalAllowedGuests = 0;
 
 if (!$phone || !is_valid_us_phone($phone)) {
     $error = 'Please enter a valid 10-digit phone number.';
@@ -24,7 +23,6 @@ if (!$phone || !is_valid_us_phone($phone)) {
         $stmt = $conn->prepare('
             SELECT
                 gei.id AS invite_id,
-                gei.allowed_guests,
                 gei.rsvp_status,
                 gei.guest_count,
                 gei.message,
@@ -41,9 +39,7 @@ if (!$phone || !is_valid_us_phone($phone)) {
         $result = $stmt->get_result();
 
         while ($row = $result->fetch_assoc()) {
-            $row['allowed_guests'] = (int)$row['allowed_guests'];
             $invites[] = $row;
-            $totalAllowedGuests += $row['allowed_guests'];
         }
         $stmt->close();
 
@@ -86,10 +82,6 @@ $invitedEventCount = count($invites);
                     <span class="invitation-stat-label">Invited Events</span>
                     <strong><?php echo $invitedEventCount; ?></strong>
                 </div>
-                <div class="invitation-stat">
-                    <span class="invitation-stat-label">Max Guests Across Events</span>
-                    <strong><?php echo $totalAllowedGuests; ?></strong>
-                </div>
             </div>
         </div>
 
@@ -103,9 +95,6 @@ $invitedEventCount = count($invites);
                             <p class="event-invite-badge">Included in your invitation</p>
                             <h3><?php echo e($invite['event_name']); ?></h3>
                             <p class="small"><?php echo e($invite['event_label']); ?> | <?php echo e($invite['event_date']); ?></p>
-                        </div>
-                        <div class="allowed-guests-pill">
-                            Up to <?php echo (int)$invite['allowed_guests']; ?> guest<?php echo (int)$invite['allowed_guests'] === 1 ? '' : 's'; ?>
                         </div>
                     </div>
 
@@ -123,7 +112,6 @@ $invitedEventCount = count($invites);
                         type="number"
                         name="guest_count_<?php echo (int)$invite['invite_id']; ?>"
                         min="0"
-                        max="<?php echo (int)$invite['allowed_guests']; ?>"
                         value="<?php echo e($invite['guest_count'] ?? ''); ?>"
                         required
                     >
