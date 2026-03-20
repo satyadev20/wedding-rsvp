@@ -340,11 +340,13 @@ table th {
 
 .event-grid-landing {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
     gap: 18px;
 }
 
 .timeline-card {
+    width: min(100%, 420px);
     position: relative;
     overflow: hidden;
     padding: 24px;
