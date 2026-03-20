@@ -64,7 +64,7 @@ $phone = isset($_GET['phone']) ? normalize_phone($_GET['phone']) : '';
             <div class="section-header">
                 <p class="eyebrow">Our Celebration</p>
                 <h2>Marriage ceremony</h2>
-                <p class="section-copy">The home page now highlights only the marriage event. Your RSVP page will still show every event assigned to your invitation.</p>
+                
             </div>
 
             <div class="event-grid-landing">
