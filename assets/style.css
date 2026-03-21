@@ -1,3 +1,672 @@
+/*:root {*/
+/*    --bg: #fff8f9;*/
+/*    --paper: rgba(255, 255, 255, 0.78);*/
+/*    --card: #ffffff;*/
+/*    --text: #31263d;*/
+/*    --muted: #6f6678;*/
+/*    --primary: #7b2d52;*/
+/*    --primary-dark: #5d1f3d;*/
+/*    --accent: #f2c66d;*/
+/*    --accent-soft: #f9ead0;*/
+/*    --line: rgba(123, 45, 82, 0.12);*/
+/*    --shadow: 0 16px 50px rgba(88, 33, 59, 0.14);*/
+/*}*/
+
+/** {*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*html {*/
+/*    scroll-behavior: smooth;*/
+/*}*/
+
+/*body {*/
+/*    margin: 0;*/
+/*    font-family: Inter, Arial, sans-serif;*/
+/*    background: #f8f5f2;*/
+/*    color: #333;*/
+/*}*/
+
+/*.wedding-body {*/
+/*    min-height: 100vh;*/
+/*    color: var(--text);*/
+/*    background:*/
+/*        radial-gradient(circle at top left, rgba(242, 198, 109, 0.30), transparent 30%),*/
+/*        radial-gradient(circle at top right, rgba(166, 87, 126, 0.18), transparent 26%),*/
+/*        linear-gradient(180deg, #fff6f7 0%, #fffaf3 50%, #fff8f9 100%);*/
+/*    overflow-x: hidden;*/
+/*}*/
+
+/*.container {*/
+/*    max-width: 1100px;*/
+/*    margin: 30px auto;*/
+/*    background: #fff;*/
+/*    padding: 24px;*/
+/*    border-radius: 12px;*/
+/*    box-shadow: 0 8px 24px rgba(0,0,0,0.08);*/
+/*}*/
+
+/*h1, h2, h3 {*/
+/*    color: #7a4b5a;*/
+/*    margin-top: 0;*/
+/*}*/
+
+/*.wedding-body h1,*/
+/*.wedding-body h2,*/
+/*.wedding-body h3,*/
+/*.wedding-body .couple-names {*/
+/*    font-family: 'Cormorant Garamond', Georgia, serif;*/
+/*    letter-spacing: 0.02em;*/
+/*}*/
+
+/*label {*/
+/*    display: block;*/
+/*    margin-bottom: 8px;*/
+/*    font-weight: 600;*/
+/*}*/
+
+/*input[type="text"],*/
+/*input[type="password"],*/
+/*input[type="number"],*/
+/*select,*/
+/*textarea {*/
+/*    width: 100%;*/
+/*    padding: 12px;*/
+/*    margin-bottom: 16px;*/
+/*    border: 1px solid #ddd;*/
+/*    border-radius: 8px;*/
+/*    box-sizing: border-box;*/
+/*    background: #fff;*/
+/*}*/
+
+/*.wedding-body input[type="text"],*/
+/*.wedding-body input[type="number"],*/
+/*.wedding-body select,*/
+/*.wedding-body textarea {*/
+/*    border: 1px solid rgba(123, 45, 82, 0.18);*/
+/*    border-radius: 16px;*/
+/*    padding: 15px 16px;*/
+/*    font-size: 16px;*/
+/*    box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);*/
+/*}*/
+
+/*textarea {*/
+/*    min-height: 110px;*/
+/*    resize: vertical;*/
+/*}*/
+
+/*button, .btn {*/
+/*    display: inline-block;*/
+/*    padding: 10px 16px;*/
+/*    border: none;*/
+/*    border-radius: 8px;*/
+/*    background: #7a4b5a;*/
+/*    color: #fff;*/
+/*    text-decoration: none;*/
+/*    cursor: pointer;*/
+/*    margin-right: 8px;*/
+/*    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;*/
+/*}*/
+
+/*button:hover, .btn:hover {*/
+/*    transform: translateY(-2px);*/
+/*    box-shadow: 0 12px 24px rgba(122, 75, 90, 0.18);*/
+/*}*/
+
+/*.btn-secondary {*/
+/*    background: #555;*/
+/*}*/
+
+/*.btn-luxury {*/
+/*    background: linear-gradient(135deg, var(--primary) 0%, #9c3f69 100%);*/
+/*    border-radius: 999px;*/
+/*    padding: 13px 24px;*/
+/*    box-shadow: 0 12px 30px rgba(123, 45, 82, 0.26);*/
+/*}*/
+
+/*.btn-outline-light {*/
+/*    background: rgba(255,255,255,0.14);*/
+/*    border: 1px solid rgba(255,255,255,0.35);*/
+/*    backdrop-filter: blur(8px);*/
+/*    border-radius: 999px;*/
+/*    padding: 13px 24px;*/
+/*}*/
+
+/*.alert {*/
+/*    padding: 12px 14px;*/
+/*    border-radius: 8px;*/
+/*    margin-bottom: 16px;*/
+/*}*/
+
+/*.alert-success {*/
+/*    background: #eaf8ef;*/
+/*    color: #166534;*/
+/*}*/
+
+/*.alert-error {*/
+/*    background: #fdeaea;*/
+/*    color: #991b1b;*/
+/*}*/
+
+/*.small {*/
+/*    color: #666;*/
+/*    font-size: 14px;*/
+/*}*/
+
+/*.grid-2 {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 1fr;*/
+/*    gap: 16px;*/
+/*}*/
+
+/*.event-card {*/
+/*    border: 1px solid #eee;*/
+/*    border-radius: 10px;*/
+/*    padding: 16px;*/
+/*    margin-bottom: 18px;*/
+/*    background: #faf7f8;*/
+/*}*/
+
+/*table {*/
+/*    width: 100%;*/
+/*    border-collapse: collapse;*/
+/*    margin-top: 16px;*/
+/*}*/
+
+/*table th, table td {*/
+/*    border: 1px solid #eee;*/
+/*    padding: 10px;*/
+/*    vertical-align: top;*/
+/*    text-align: left;*/
+/*}*/
+
+/*table th {*/
+/*    background: #faf7f8;*/
+/*}*/
+
+/*.actions a, .actions form {*/
+/*    display: inline-block;*/
+/*    margin-right: 6px;*/
+/*    margin-bottom: 6px;*/
+/*}*/
+
+/*.hero-section {*/
+/*    position: relative;*/
+/*    min-height: 100vh;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    padding: 48px 20px;*/
+/*    background:*/
+/*        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.26), transparent 22%),*/
+/*        linear-gradient(135deg, rgba(93,31,61,0.96), rgba(123,45,82,0.84) 45%, rgba(208,152,73,0.82) 100%);*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.hero-overlay {*/
+/*    position: absolute;*/
+/*    inset: 0;*/
+/*    background:*/
+/*        radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 42%),*/
+/*        linear-gradient(to bottom, rgba(255,255,255,0.06), rgba(255,255,255,0));*/
+/*}*/
+
+/*.hero-inner {*/
+/*    position: relative;*/
+/*    z-index: 2;*/
+/*    max-width: 980px;*/
+/*    width: 100%;*/
+/*    text-align: center;*/
+/*    color: #fffaf6;*/
+/*}*/
+
+/*.hero-badge {*/
+/*    display: inline-block;*/
+/*    padding: 10px 18px;*/
+/*    border-radius: 999px;*/
+/*    border: 1px solid rgba(255,255,255,0.25);*/
+/*    background: rgba(255,255,255,0.10);*/
+/*    backdrop-filter: blur(12px);*/
+/*    font-size: 14px;*/
+/*    letter-spacing: 0.14em;*/
+/*    text-transform: uppercase;*/
+/*}*/
+
+/*.hero-intro,*/
+/*.hero-date {*/
+/*    color: rgba(255,250,246,0.88);*/
+/*}*/
+
+/*.couple-names {*/
+/*    margin: 18px auto 14px;*/
+/*    font-size: clamp(56px, 9vw, 112px);*/
+/*    line-height: 0.95;*/
+/*    font-weight: 700;*/
+/*    text-shadow: 0 8px 30px rgba(0,0,0,0.16);*/
+/*}*/
+
+/*.couple-names span {*/
+/*    display: inline-block;*/
+/*    color: #ffe6ad;*/
+/*    animation: pulseGlow 2.8s ease-in-out infinite;*/
+/*}*/
+
+/*.hero-date {*/
+/*    font-size: 18px;*/
+/*    letter-spacing: 0.04em;*/
+/*}*/
+
+/*.hero-actions {*/
+/*    margin-top: 26px;*/
+/*    display: flex;*/
+/*    gap: 14px;*/
+/*    flex-wrap: wrap;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.countdown-card {*/
+/*    margin: 34px auto 0;*/
+/*    max-width: 760px;*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(4, minmax(110px, 1fr));*/
+/*    gap: 14px;*/
+/*    padding: 18px;*/
+/*    border: 1px solid rgba(255,255,255,0.24);*/
+/*    background: rgba(255,255,255,0.11);*/
+/*    backdrop-filter: blur(12px);*/
+/*    border-radius: 28px;*/
+/*    box-shadow: 0 20px 40px rgba(0,0,0,0.12);*/
+/*}*/
+
+/*.countdown-item {*/
+/*    padding: 14px;*/
+/*    border-radius: 22px;*/
+/*    background: rgba(255,255,255,0.08);*/
+/*}*/
+
+/*.countdown-value {*/
+/*    font-family: 'Cormorant Garamond', Georgia, serif;*/
+/*    font-size: clamp(32px, 5vw, 46px);*/
+/*    font-weight: 700;*/
+/*}*/
+
+/*.countdown-label {*/
+/*    margin-top: 6px;*/
+/*    font-size: 13px;*/
+/*    letter-spacing: 0.12em;*/
+/*    text-transform: uppercase;*/
+/*    color: rgba(255,250,246,0.82);*/
+/*}*/
+
+/*.landing-shell {*/
+/*    position: relative;*/
+/*    z-index: 1;*/
+/*    max-width: 1180px;*/
+/*    margin: -70px auto 0;*/
+/*    padding: 0 18px 48px;*/
+/*}*/
+
+/*.landing-section {*/
+/*    margin-bottom: 26px;*/
+/*    padding: 34px 26px;*/
+/*    border: 1px solid var(--line);*/
+/*    background: var(--paper);*/
+/*    backdrop-filter: blur(10px);*/
+/*    border-radius: 30px;*/
+/*    box-shadow: var(--shadow);*/
+/*}*/
+
+/*.section-header {*/
+/*    max-width: 760px;*/
+/*    margin: 0 auto 28px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.eyebrow {*/
+/*    margin: 0 0 10px;*/
+/*    color: var(--primary);*/
+/*    font-weight: 700;*/
+/*    letter-spacing: 0.18em;*/
+/*    text-transform: uppercase;*/
+/*    font-size: 12px;*/
+/*}*/
+
+/*.section-copy {*/
+/*    margin: 8px auto 0;*/
+/*    color: var(--muted);*/
+/*    max-width: 720px;*/
+/*    line-height: 1.7;*/
+/*}*/
+
+
+/*.event-grid-landing {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.timeline-card {*/
+/*    margin: 0 auto;*/
+/*    text-align: center;*/
+/*}*/
+
+
+/*.event-grid-landing {*/
+/*    display: grid;*/
+/*    grid-template-columns: minmax(0, 1fr);*/
+/*    justify-items: center;*/
+/*    gap: 18px;*/
+/*}*/
+
+/*.timeline-card {*/
+/*    width: min(100%, 420px);*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+/*    padding: 24px;*/
+/*    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,248,249,0.94));*/
+/*    border: 1px solid rgba(123,45,82,0.10);*/
+/*    border-radius: 24px;*/
+/*    box-shadow: 0 12px 28px rgba(123,45,82,0.08);*/
+/*    transition: transform 0.35s ease, box-shadow 0.35s ease;*/
+/*}*/
+
+/*.timeline-card:hover {*/
+/*    transform: translateY(-8px) scale(1.01);*/
+/*    box-shadow: 0 18px 40px rgba(123,45,82,0.14);*/
+/*}*/
+
+/*.timeline-glow {*/
+/*    position: absolute;*/
+/*    width: 160px;*/
+/*    height: 160px;*/
+/*    border-radius: 50%;*/
+/*    top: -40px;*/
+/*    right: -50px;*/
+/*    background: radial-gradient(circle, rgba(242,198,109,0.26), transparent 70%);*/
+/*}*/
+
+/*.timeline-date {*/
+/*    color: var(--primary);*/
+/*    font-weight: 700;*/
+/*    letter-spacing: 0.06em;*/
+/*}*/
+
+/*.split-card {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1.05fr 1fr;*/
+/*    gap: 20px;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.venue-address {*/
+/*    font-size: 22px;*/
+/*    line-height: 1.55;*/
+/*    color: var(--primary-dark);*/
+/*}*/
+
+/*.map-frame-wrap {*/
+/*    padding: 10px;*/
+/*    border-radius: 26px;*/
+/*    background: linear-gradient(135deg, rgba(123,45,82,0.08), rgba(242,198,109,0.16));*/
+/*}*/
+
+/*.venue-map {*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    height: 340px;*/
+/*    border: 0;*/
+/*    border-radius: 20px;*/
+/*}*/
+
+/*.rsvp-panel {*/
+/*    max-width: 760px;*/
+/*    margin: 0 auto;*/
+/*    padding: 28px;*/
+/*    border-radius: 28px;*/
+/*    background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,250,242,0.96));*/
+/*    border: 1px solid rgba(123,45,82,0.10);*/
+/*    box-shadow: 0 14px 34px rgba(123,45,82,0.10);*/
+/*}*/
+
+/*.shimmer-panel {*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.shimmer-panel::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: -120%;*/
+/*    left: -25%;*/
+/*    width: 40%;*/
+/*    height: 320%;*/
+/*    transform: rotate(18deg);*/
+/*    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);*/
+/*    animation: shimmer 7s linear infinite;*/
+/*}*/
+
+/*.petals {*/
+/*    pointer-events: none;*/
+/*    position: fixed;*/
+/*    inset: 0;*/
+/*    z-index: 30;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.petal {*/
+/*    position: absolute;*/
+/*    top: -10%;*/
+/*    width: 18px;*/
+/*    height: 28px;*/
+/*    border-radius: 70% 0 70% 0;*/
+/*    background: linear-gradient(180deg, rgba(255,213,227,0.85), rgba(255,244,248,0.92));*/
+/*    box-shadow: 0 4px 10px rgba(123,45,82,0.10);*/
+/*    opacity: 0.8;*/
+/*    animation: fall linear infinite;*/
+/*}*/
+
+/*.p1 { left: 8%; animation-duration: 13s; animation-delay: -2s; }*/
+/*.p2 { left: 18%; animation-duration: 11s; animation-delay: -6s; }*/
+/*.p3 { left: 31%; animation-duration: 15s; animation-delay: -5s; }*/
+/*.p4 { left: 48%; animation-duration: 12s; animation-delay: -3s; }*/
+/*.p5 { left: 62%; animation-duration: 14s; animation-delay: -7s; }*/
+/*.p6 { left: 74%; animation-duration: 10s; animation-delay: -1s; }*/
+/*.p7 { left: 86%; animation-duration: 16s; animation-delay: -8s; }*/
+/*.p8 { left: 94%; animation-duration: 12.5s; animation-delay: -4s; }*/
+
+/*.fade-up {*/
+/*    opacity: 0;*/
+/*    transform: translateY(22px);*/
+/*    animation: fadeUp 1s ease forwards;*/
+/*}*/
+
+/*.delay-1 { animation-delay: 0.2s; }*/
+/*.delay-2 { animation-delay: 0.45s; }*/
+/*.delay-3 { animation-delay: 0.7s; }*/
+/*.delay-4 { animation-delay: 0.95s; }*/
+/*.delay-5 { animation-delay: 1.15s; }*/
+
+/*.reveal {*/
+/*    opacity: 0;*/
+/*    transform: translateY(28px);*/
+/*    transition: opacity 0.8s ease, transform 0.8s ease;*/
+/*}*/
+
+/*.reveal.in-view {*/
+/*    opacity: 1;*/
+/*    transform: translateY(0);*/
+/*}*/
+
+/*@keyframes fadeUp {*/
+/*    to {*/
+/*        opacity: 1;*/
+/*        transform: translateY(0);*/
+/*    }*/
+/*}*/
+
+/*@keyframes pulseGlow {*/
+/*    0%, 100% { transform: scale(1); text-shadow: 0 0 0 rgba(255,230,173,0.0); }*/
+/*    50% { transform: scale(1.06); text-shadow: 0 0 18px rgba(255,230,173,0.22); }*/
+/*}*/
+
+/*@keyframes shimmer {*/
+/*    0% { transform: translateX(-120%) rotate(18deg); }*/
+/*    100% { transform: translateX(420%) rotate(18deg); }*/
+/*}*/
+
+/*@keyframes fall {*/
+/*    0% { transform: translate3d(0, -10vh, 0) rotate(0deg); }*/
+/*    50% { transform: translate3d(18px, 55vh, 0) rotate(160deg); }*/
+/*    100% { transform: translate3d(-12px, 115vh, 0) rotate(340deg); }*/
+/*}*/
+
+/*@media (max-width: 900px) {*/
+/*    .event-grid-landing,*/
+/*    .split-card {*/
+/*        grid-template-columns: 1fr;*/
+/*    }*/
+
+/*    .countdown-card {*/
+/*        grid-template-columns: repeat(2, minmax(0, 1fr));*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 700px) {*/
+/*    .container {*/
+/*        margin: 15px;*/
+/*        padding: 18px;*/
+/*    }*/
+
+/*    .grid-2 {*/
+/*        grid-template-columns: 1fr;*/
+/*    }*/
+
+/*    .hero-section {*/
+/*        min-height: auto;*/
+/*        padding: 90px 18px 110px;*/
+/*    }*/
+
+/*    .landing-shell {*/
+/*        margin-top: -46px;*/
+/*        padding: 0 12px 28px;*/
+/*    }*/
+
+/*    .landing-section {*/
+/*        padding: 24px 18px;*/
+/*        border-radius: 24px;*/
+/*    }*/
+
+/*    .countdown-card {*/
+/*        gap: 10px;*/
+/*        border-radius: 24px;*/
+/*    }*/
+
+/*    .hero-actions {*/
+/*        flex-direction: column;*/
+/*        align-items: stretch;*/
+/*    }*/
+
+/*    .hero-actions .btn,*/
+/*    .hero-actions button {*/
+/*        width: 100%;*/
+/*        text-align: center;*/
+/*        margin-right: 0;*/
+/*    }*/
+/*}*/
+
+/*.invitation-shell {*/
+/*    max-width: 900px;*/
+/*    background: rgba(255, 255, 255, 0.9);*/
+/*    border: 1px solid rgba(123, 45, 82, 0.1);*/
+/*    box-shadow: var(--shadow);*/
+/*}*/
+
+/*.invitation-summary {*/
+/*    margin-bottom: 28px;*/
+/*    padding: 24px;*/
+/*    border-radius: 24px;*/
+/*    background: linear-gradient(135deg, rgba(123, 45, 82, 0.08), rgba(242, 198, 109, 0.16));*/
+/*    border: 1px solid rgba(123, 45, 82, 0.1);*/
+/*}*/
+
+/*.invitation-copy {*/
+/*    margin-bottom: 0;*/
+/*}*/
+
+/*.invitation-stats {*/
+/*    display: flex;*/
+/*    gap: 14px;*/
+/*    flex-wrap: wrap;*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*.invitation-stat {*/
+/*    min-width: 180px;*/
+/*    padding: 14px 16px;*/
+/*    border-radius: 18px;*/
+/*    background: rgba(255, 255, 255, 0.72);*/
+/*    border: 1px solid rgba(123, 45, 82, 0.08);*/
+/*}*/
+
+/*.invitation-stat-label {*/
+/*    display: block;*/
+/*    font-size: 12px;*/
+/*    text-transform: uppercase;*/
+/*    letter-spacing: 0.12em;*/
+/*    color: var(--muted);*/
+/*    margin-bottom: 6px;*/
+/*}*/
+
+/*.invitation-event-card {*/
+/*    border-radius: 24px;*/
+/*    border: 1px solid rgba(123, 45, 82, 0.12);*/
+/*    background: rgba(255, 255, 255, 0.82);*/
+/*    box-shadow: 0 14px 36px rgba(88, 33, 59, 0.08);*/
+/*}*/
+
+/*.invitation-event-header {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    gap: 16px;*/
+/*    align-items: flex-start;*/
+/*    margin-bottom: 12px;*/
+/*}*/
+
+/*.event-invite-badge {*/
+/*    display: inline-flex;*/
+/*    align-items: center;*/
+/*    border-radius: 999px;*/
+/*    font-size: 12px;*/
+/*    letter-spacing: 0.08em;*/
+/*    text-transform: uppercase;*/
+/*}*/
+
+/*.event-invite-badge {*/
+/*    margin: 0 0 10px;*/
+/*    padding: 8px 12px;*/
+/*    background: rgba(123, 45, 82, 0.1);*/
+/*    color: var(--primary);*/
+/*    font-weight: 600;*/
+/*}*/
+
+
+/*.section-copy {*/
+/*    color: var(--muted);*/
+/*    line-height: 1.7;*/
+/*}*/
+
+/*@media (max-width: 700px) {*/
+/*    .invitation-event-header {*/
+/*        flex-direction: column;*/
+/*    }*/
+
+/*    .invitation-stat {*/
+/*        width: 100%;*/
+/*    }*/
+
+/*}*/
+
 :root {
     --bg: #fff8f9;
     --paper: rgba(255, 255, 255, 0.78);
@@ -339,14 +1008,16 @@ table th {
 }
 
 .event-grid-landing {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    justify-items: center;
-    gap: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .timeline-card {
     width: min(100%, 420px);
+    margin: 0 auto;
+    text-align: center;
     position: relative;
     overflow: hidden;
     padding: 24px;
@@ -508,7 +1179,6 @@ table th {
 }
 
 @media (max-width: 900px) {
-    .event-grid-landing,
     .split-card {
         grid-template-columns: 1fr;
     }
@@ -636,7 +1306,6 @@ table th {
     font-weight: 600;
 }
 
-
 .section-copy {
     color: var(--muted);
     line-height: 1.7;
@@ -650,5 +1319,4 @@ table th {
     .invitation-stat {
         width: 100%;
     }
-
 }
