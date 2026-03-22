@@ -83,6 +83,18 @@ $invitedEventCount = count($invites);
                     <strong><?php echo $invitedEventCount; ?></strong>
                 </div>
             </div>
+
+            <div class="invitation-events-overview">
+                <p class="invitation-events-title">Events on your invitation</p>
+                <div class="invitation-events-list">
+                    <?php foreach ($invites as $invite): ?>
+                        <div class="invitation-events-item">
+                            <strong><?php echo e($invite['event_name']); ?></strong>
+                            <span><?php echo e($invite['event_label']); ?> | <?php echo e($invite['event_date']); ?></span>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
         </div>
 
         <form method="post" action="submit_rsvp.php">
