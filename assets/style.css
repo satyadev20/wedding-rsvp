@@ -1250,6 +1250,41 @@ table th {
     margin-bottom: 0;
 }
 
+.invitation-events-overview {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(123, 45, 82, 0.12);
+}
+
+.invitation-events-title {
+    margin: 0 0 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.invitation-events-list {
+    display: grid;
+    gap: 12px;
+}
+
+.invitation-events-item {
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(123, 45, 82, 0.08);
+}
+
+.invitation-events-item strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.invitation-events-item span {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
 .invitation-stats {
     display: flex;
     gap: 14px;
