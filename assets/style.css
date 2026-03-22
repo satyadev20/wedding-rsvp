@@ -1291,6 +1291,10 @@ table th {
     grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
 }
 
+.celebration-card-showcase-only {
+    padding: 0;
+}
+
 .celebration-card-showcase {
     padding: 36px 28px;
     background:
@@ -1310,6 +1314,13 @@ table th {
     min-height: 100%;
 }
 
+.invitation-event-grid-multi {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
 .invitation-timeline-card {
     width: min(100%, 420px);
     padding: 34px 24px;
@@ -1324,6 +1335,76 @@ table th {
 .invitation-event-note {
     margin: 18px auto 0;
     justify-content: center;
+}
+
+.invitation-event-label {
+    margin: 10px 0 0;
+    font-size: 15px;
+}
+
+.invitation-form-card {
+    margin-top: 24px;
+}
+
+.invitation-form-panel-full {
+    border-left: 0;
+}
+
+.invitation-response-header {
+    margin-bottom: 26px;
+}
+
+.invitation-response-form textarea {
+    margin-bottom: 22px;
+}
+
+.invitation-response-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 180px;
+    gap: 18px;
+    align-items: center;
+    padding: 18px 0 10px;
+    border-top: 1px solid rgba(123, 45, 82, 0.08);
+}
+
+.invitation-response-row:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.invitation-check-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.invitation-check-row input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
+    margin: 0;
+}
+
+.invitation-check-row span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.invitation-check-row small {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.invitation-count-field label {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.invitation-count-field input {
+    margin-bottom: 0;
 }
 
 .invitation-form-panel {
@@ -1375,6 +1456,10 @@ table th {
         border-left: 0;
         border-top: 1px solid rgba(123, 45, 82, 0.08);
     }
+
+    .invitation-response-row {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 700px) {
@@ -1389,6 +1474,14 @@ table th {
     .celebration-card-showcase,
     .invitation-form-panel {
         padding: 24px 18px;
+    }
+
+    .invitation-event-grid-multi {
+        grid-template-columns: 1fr;
+    }
+
+    .invitation-check-row {
+        align-items: flex-start;
     }
 
     .invitation-timeline-card h4 {
