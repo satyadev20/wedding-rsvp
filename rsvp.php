@@ -97,41 +97,72 @@ $invitedEventCount = count($invites);
             </div>
         </div>
 
-        <form method="post" action="submit_rsvp.php">
+        <div class="event-card invitation-event-card celebration-card celebration-card-showcase-only">
+            <div class="celebration-card-showcase">
+                <div class="section-header invitation-section-header">
+                    <p class="eyebrow">Our Celebration</p>
+                    <h3>Your invited events</h3>
+                </div>
+
+                <div class="invitation-event-grid invitation-event-grid-multi">
+                    <?php foreach ($invites as $invite): ?>
+                        <article class="timeline-card invitation-timeline-card">
+                            <div class="timeline-glow"></div>
+                            <p class="timeline-date"><?php echo e(date('F j, Y', strtotime($invite['event_date']))); ?></p>
+                            <h4><?php echo e($invite['event_name']); ?></h4>
+                            <p class="small invitation-event-label"><?php echo e($invite['event_label']); ?></p>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+
+        <form method="post" action="submit_rsvp.php" class="invitation-response-form">
             <input type="hidden" name="phone" value="<?php echo e($guest['phone']); ?>">
 
-            <?php foreach ($invites as $invite): ?>
-                <div class="event-card invitation-event-card">
-                    <div class="invitation-event-header">
-                        <div>
-                            <p class="event-invite-badge">Included in your invitation</p>
-                            <h3><?php echo e($invite['event_name']); ?></h3>
-                            <p class="small"><?php echo e($invite['event_label']); ?> | <?php echo e($invite['event_date']); ?></p>
-                        </div>
+            <div class="event-card invitation-event-card invitation-form-card">
+                <div class="invitation-form-panel invitation-form-panel-full">
+                    <div class="section-header invitation-section-header invitation-response-header">
+                        <p class="eyebrow">RSVP Selection</p>
+                        <h3>Select the events you will attend</h3>
+                        <p class="section-copy">Use the checkbox for each event, then enter the guest count next to it.</p>
                     </div>
 
-                    <input type="hidden" name="invite_ids[]" value="<?php echo (int)$invite['invite_id']; ?>">
+                    <?php foreach ($invites as $invite): ?>
+                        <?php $isAttending = (($invite['rsvp_status'] ?? '') === 'Yes'); ?>
+                        <input type="hidden" name="invite_ids[]" value="<?php echo (int)$invite['invite_id']; ?>">
 
-                    <label>Will you attend?</label>
-                    <select name="status_<?php echo (int)$invite['invite_id']; ?>" required>
-                        <option value="">Select</option>
-                        <option value="Yes" <?php echo (($invite['rsvp_status'] ?? '') === 'Yes') ? 'selected' : ''; ?>>Yes</option>
-                        <option value="No" <?php echo (($invite['rsvp_status'] ?? '') === 'No') ? 'selected' : ''; ?>>No</option>
-                    </select>
+                        <div class="invitation-response-row">
+                            <label class="invitation-check-row">
+                                <input
+                                    type="checkbox"
+                                    name="status_<?php echo (int)$invite['invite_id']; ?>"
+                                    value="Yes"
+                                    <?php echo $isAttending ? 'checked' : ''; ?>
+                                >
+                                <span>
+                                    <strong><?php echo e($invite['event_name']); ?></strong>
+                                    <small><?php echo e($invite['event_label']); ?> · <?php echo e(date('F j, Y', strtotime($invite['event_date']))); ?></small>
+                                </span>
+                            </label>
 
-                    <label>Number of Guests Attending</label>
-                    <input
-                        type="number"
-                        name="guest_count_<?php echo (int)$invite['invite_id']; ?>"
-                        min="0"
-                        value="<?php echo e($invite['guest_count'] ?? ''); ?>"
-                        required
-                    >
+                            <div class="invitation-count-field">
+                                <label for="guest_count_<?php echo (int)$invite['invite_id']; ?>">Guest Count</label>
+                                <input
+                                    id="guest_count_<?php echo (int)$invite['invite_id']; ?>"
+                                    type="number"
+                                    name="guest_count_<?php echo (int)$invite['invite_id']; ?>"
+                                    min="0"
+                                    value="<?php echo e($invite['guest_count'] ?? ($isAttending ? '1' : '0')); ?>"
+                                >
+                            </div>
+                        </div>
 
-                    <label>Message (optional)</label>
-                    <textarea name="message_<?php echo (int)$invite['invite_id']; ?>"><?php echo e($invite['message'] ?? ''); ?></textarea>
+                        <label>Message for <?php echo e($invite['event_name']); ?> (optional)</label>
+                        <textarea name="message_<?php echo (int)$invite['invite_id']; ?>"><?php echo e($invite['message'] ?? ''); ?></textarea>
+                    <?php endforeach; ?>
                 </div>
-            <?php endforeach; ?>
+            </div>
 
             <button type="submit" class="btn btn-luxury">Submit RSVP</button>
         </form>

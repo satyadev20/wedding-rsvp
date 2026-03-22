@@ -40,24 +40,20 @@ if (!$error) {
             continue;
         }
 
-        $status = trim($_POST["status_$inviteId"] ?? '');
-        $guestCount = isset($_POST["guest_count_$inviteId"]) ? (int)$_POST["guest_count_$inviteId"] : -1;
+        $status = isset($_POST["status_$inviteId"]) ? 'Yes' : 'No';
+        $guestCount = isset($_POST["guest_count_$inviteId"]) ? (int)$_POST["guest_count_$inviteId"] : 0;
         $message = trim($_POST["message_$inviteId"] ?? '');
-
-        if (!in_array($status, ['Yes', 'No'], true)) {
-            continue;
-        }
 
         if ($status === 'No') {
             $guestCount = 0;
         }
 
         if ($guestCount < 0) {
-            continue;
+            $guestCount = 0;
         }
 
         if ($status === 'Yes' && $guestCount < 1) {
-            continue;
+            $guestCount = 1;
         }
 
         $stmt = $conn->prepare('UPDATE guest_event_invites SET rsvp_status = ?, guest_count = ?, message = ?, responded_at = NOW() WHERE id = ? AND guest_id = ?');
